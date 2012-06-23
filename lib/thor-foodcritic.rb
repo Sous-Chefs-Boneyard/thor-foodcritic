@@ -34,13 +34,13 @@ module ThorFoodCritic
         exclude_paths: options[:exclude_paths]
       )
       say(review, :red)
-      exit_with_review(review)
+      exit_if_failure(review)
     end
 
     private
 
-      def exit_with_review(review)
-        review.failed? ? exit(100) : exit(0)
+      def exit_if_failure(review)
+        review.failed? ? exit(100) : nil
       end
   end
 end
