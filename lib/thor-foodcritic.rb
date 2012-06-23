@@ -10,12 +10,12 @@ module ThorFoodCritic
       aliases: "-t", 
       desc: "Only check against rules with the specified tags.",
       default: ["~FC001"]
-    method_option :include_rules,
+    method_option :include,
       type: :array,
       aliases: "-I",
       desc: "Additional rule file path(s) to load.",
       default: Array.new
-    method_option :fail_tags,
+    method_option :epic_fail,
       type: :array,
       aliases: "-f",
       desc: "Fail the build if any of the specified tags are matched.",
@@ -27,7 +27,12 @@ module ThorFoodCritic
       default: ['test/**/*', 'spec/**/*', 'features/**/*']
     desc "lint", "Run a lint test against the Cookbook in your current working directory."
     def lint
-      review = ::FoodCritic::Linter.new.check(Dir.pwd, options)
+      review = ::FoodCritic::Linter.new.check(Dir.pwd, 
+        tags: options[:tags],
+        include_rules: options[:include],
+        fail_tags: options[:epic_fail],
+        exclude_paths: options[:exclude_paths]
+      )
       say(review, :red)
       exit_with_review(review)
     end
