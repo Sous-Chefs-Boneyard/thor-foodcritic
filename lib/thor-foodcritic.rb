@@ -1,0 +1,41 @@
+require 'thor-foodcritic/version'
+require 'foodcritic'
+
+module ThorFoodCritic
+  class Tasks < Thor
+    namespace "foodcritic"
+
+    method_option :tags,
+      type: :array, 
+      aliases: "-t", 
+      desc: "Only check against rules with the specified tags.",
+      default: ["~FC001"]
+    method_option :include_rules,
+      type: :array,
+      aliases: "-I",
+      desc: "Additional rule file path(s) to load.",
+      default: Array.new
+    method_option :fail_tags,
+      type: :array,
+      aliases: "-f",
+      desc: "Fail the build if any of the specified tags are matched.",
+      default: Array.new
+    method_option :exclude_paths,
+      type: :array,
+      aliases: "-e",
+      desc: "Paths to exclude when running tests.",
+      default: ['test/**/*', 'spec/**/*', 'features/**/*']
+    desc "lint", "Run a lint test against the Cookbook in your current working directory."
+    def lint
+      review = ::FoodCritic::Linter.new.check(Dir.pwd, options)
+      say(review, :red)
+      exit_with_review(review)
+    end
+
+    private
+
+      def exit_with_review(review)
+        review.failed? ? exit(100) : exit(0)
+      end
+  end
+end
