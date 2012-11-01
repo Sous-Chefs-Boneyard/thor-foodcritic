@@ -9,7 +9,7 @@ module ThorFoodCritic
       type: :array, 
       aliases: "-t", 
       desc: "Only check against rules with the specified tags.",
-      default: ["~FC001"]
+      default: Array.new
     method_option :include,
       type: :array,
       aliases: "-I",
