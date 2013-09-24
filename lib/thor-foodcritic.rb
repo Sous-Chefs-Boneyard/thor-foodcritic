@@ -5,6 +5,16 @@ module ThorFoodCritic
   class Tasks < Thor
     namespace "foodcritic"
 
+    method_option :cookbook_path,
+      type: :array,
+      aliases: "-B",
+      desc: "Cookbook path(s) to check.",
+      default: Dir.pwd
+    method_option :role_path,
+      type: :array,
+      aliases: "-R",
+      desc: "Role path(s) to check.",
+      default: Array.new
     method_option :tags,
       type: :array,
       aliases: "-t",
@@ -25,10 +35,11 @@ module ThorFoodCritic
       aliases: "-e",
       desc: "Paths to exclude when running tests.",
       default: ['test/**/*', 'spec/**/*', 'features/**/*']
-    desc "lint", "Run a lint test against the Cookbook in your current working directory."
+    desc "lint", "Run a lint test against the specified Cookbook and Role paths or otherwise your current working directory."
     def lint
       review = ::FoodCritic::Linter.new.check(
-        cookbook_paths: Dir.pwd,
+        cookbook_paths: options[:cookbook_path],
+        role_paths: options[:role_path],
         tags: options[:tags],
         include_rules: options[:include],
         fail_tags: options[:epic_fail],
