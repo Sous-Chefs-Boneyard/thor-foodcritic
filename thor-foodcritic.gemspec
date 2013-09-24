@@ -15,5 +15,5 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 1.9.1"
 
   s.add_runtime_dependency 'thor'
-  s.add_runtime_dependency 'foodcritic'
+  s.add_runtime_dependency 'foodcritic', '~> 3.0'
 end
