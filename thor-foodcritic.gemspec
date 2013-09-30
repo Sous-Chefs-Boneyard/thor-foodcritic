@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.homepage              = "https://github.com/reset/thor-foodcritic"
   s.description           = %q{FoodCritic Thor tasks for your Cookbook projects}
   s.summary               = s.description
+  s.license               = "Apache 2.0"
   s.files                 = `git ls-files`.split("\n")
   s.require_paths         = ["lib"]
   s.required_ruby_version = ">= 1.9.1"
