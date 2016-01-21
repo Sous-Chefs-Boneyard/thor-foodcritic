@@ -1,3 +1,3 @@
 module ThorFoodCritic
-  VERSION = "1.1.0"
+  VERSION = "1.1.99"
 end

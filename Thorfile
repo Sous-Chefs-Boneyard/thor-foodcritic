@@ -8,6 +8,8 @@ require 'thor/rake_compat'
 class Default < Thor
   include Thor::RakeCompat
   Bundler::GemHelper.install_tasks
+  # Disable the push to rubygems.org
+  Rake::Task[:release].clear
 
   desc "build", "Build berkshelf-#{ThorFoodCritic::VERSION}.gem into the pkg directory"
   def build
