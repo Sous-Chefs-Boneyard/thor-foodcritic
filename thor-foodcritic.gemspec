@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version               = ThorFoodCritic::VERSION
   s.authors               = ["Jamie Winsor"]
   s.email                 = ["jamie@vialstudios.com"]
-  s.homepage              = "https://github.com/reset/thor-foodcritic"
+  s.homepage              = "https://github.com/sous-chefs/thor-foodcritic"
   s.description           = %q{FoodCritic Thor tasks for your Cookbook projects}
   s.summary               = s.description
   s.license               = "Apache 2.0"
