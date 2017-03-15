@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors               = ["Jamie Winsor"]
   s.email                 = ["jamie@vialstudios.com"]
   s.homepage              = "https://github.com/sous-chefs/thor-foodcritic"
-  s.description           = %q{FoodCritic Thor tasks for your Cookbook projects}
+  s.description           = %q{Foodcritic Thor tasks for your Chef Cookbook projects}
   s.summary               = s.description
   s.license               = "Apache 2.0"
   s.files                 = `git ls-files`.split("\n")
