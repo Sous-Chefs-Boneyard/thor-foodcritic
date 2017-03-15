@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.license               = "Apache 2.0"
   s.files                 = `git ls-files`.split("\n")
   s.require_paths         = ["lib"]
-  s.required_ruby_version = ">= 1.9.1"
+  s.required_ruby_version = ">= 2.1"
 
   s.add_runtime_dependency 'thor'
   s.add_runtime_dependency 'foodcritic', '~> 4.0'
