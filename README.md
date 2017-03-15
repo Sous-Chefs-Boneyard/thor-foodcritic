@@ -1,5 +1,7 @@
 # thor-foodcritic
 
+[![Gem Version](https://badge.fury.io/rb/thor-foodcritic.svg)](https://badge.fury.io/rb/thor-foodcritic)
+
 Food Critic Thor tasks for your Chef cookbook projects
 
 # Installation
