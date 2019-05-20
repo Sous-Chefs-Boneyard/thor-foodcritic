@@ -6,7 +6,7 @@
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Food Critic Thor tasks for your Chef cookbook projects
+FoodCritic Thor tasks for your Chef cookbook projects
 
 ## Maintainers
 
