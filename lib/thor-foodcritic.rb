@@ -1,41 +1,41 @@
-require "thor-foodcritic/version"
-require "foodcritic"
+require 'thor-foodcritic/version'
+require 'foodcritic'
 
 module ThorFoodCritic
   class Tasks < Thor
-    namespace "foodcritic"
+    namespace 'foodcritic'
 
     method_option :cookbook_path,
       type: :array,
-      aliases: "-B",
-      desc: "Cookbook path(s) to check.",
+      aliases: '-B',
+      desc: 'Cookbook path(s) to check.',
       default: Dir.pwd
     method_option :role_path,
       type: :array,
-      aliases: "-R",
-      desc: "Role path(s) to check.",
-      default: Array.new
+      aliases: '-R',
+      desc: 'Role path(s) to check.',
+      default: []
     method_option :tags,
       type: :array,
-      aliases: "-t",
-      desc: "Only check against rules with the specified tags.",
-      default: Array.new
+      aliases: '-t',
+      desc: 'Only check against rules with the specified tags.',
+      default: []
     method_option :include,
       type: :array,
-      aliases: "-I",
-      desc: "Additional rule file path(s) to load.",
-      default: Array.new
+      aliases: '-I',
+      desc: 'Additional rule file path(s) to load.',
+      default: []
     method_option :epic_fail,
       type: :array,
-      aliases: "-f",
-      desc: "Fail the build if any of the specified tags are matched.",
-      default: Array.new
+      aliases: '-f',
+      desc: 'Fail the build if any of the specified tags are matched.',
+      default: []
     method_option :exclude_paths,
       type: :array,
-      aliases: "-e",
-      desc: "Paths to exclude when running tests.",
-      default: ["test/**/*", "spec/**/*", "features/**/*"]
-    desc "lint", "Run a lint test against the specified Cookbook and Role paths or otherwise your current working directory."
+      aliases: '-e',
+      desc: 'Paths to exclude when running tests.',
+      default: ['test/**/*', 'spec/**/*', 'features/**/*']
+    desc 'lint', 'Run a lint test against the specified Cookbook and Role paths or otherwise your current working directory.'
     def lint
       review = ::FoodCritic::Linter.new.check(
         cookbook_paths: options[:cookbook_path],
