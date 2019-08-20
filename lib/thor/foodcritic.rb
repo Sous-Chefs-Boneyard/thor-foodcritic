@@ -1,1 +1,1 @@
-require "thor-foodcritic"
+require 'thor-foodcritic'
